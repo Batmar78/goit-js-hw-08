@@ -9,6 +9,7 @@ const formData = {};
 const KEYFORM = 'feedback-form-state';
 const saveFormData = JSON.parse(localStorage.getItem(KEYFORM));
 
+
 populateForm();
 
 feedbackForm.addEventListener('input', throttle(onFormInput, 500));
@@ -22,9 +23,10 @@ function onFormInput(evt) {
 };
 
 function onFormSubmit(evt) {
+   
     evt.preventDefault();
-    console.log(saveFormData);
-    evt.currentTarget.reset();
+    console.log(JSON.parse(localStorage.getItem(KEYFORM)));
+    evt.target.reset();
     localStorage.removeItem(KEYFORM);
 };
 
