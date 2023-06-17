@@ -7,9 +7,9 @@ const textareaForm = document.querySelector('textarea');
 const formData = {};
 
 const KEYFORM = 'feedback-form-state';
-const consFormData = JSON.parse(localStorage.getItem(KEYFORM));
+
 const saveFormData = JSON.parse(localStorage.getItem(KEYFORM)) ?? formData;
-// const saveFormData = JSON.parse(localStorage.getItem(KEYFORM));
+
 
 
 feedbackForm.addEventListener('input', throttle(onFormInput, 500));
@@ -27,11 +27,11 @@ function onFormInput(evt) {
 function onFormSubmit(evt) {
    
     evt.preventDefault();
-    console.log(consFormData);
+    console.log(formData);
     evt.target.reset();
+    localStorage.removeItem(KEYFORM);
     formData.email = '';
     formData.message = '';
-    localStorage.removeItem(KEYFORM);
     
 };
 
@@ -41,5 +41,6 @@ function populateForm() {
        
         inputForm.value = saveFormData.email ?? '';
         textareaForm.value = saveFormData.message ?? '';
+       
     };
 };
