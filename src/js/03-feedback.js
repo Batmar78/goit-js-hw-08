@@ -41,6 +41,6 @@ function populateForm() {
         textareaForm.value = saveFormData.message ?? '';
         formData.email = inputForm.value ?? '';
         formData.message = textareaForm.value ?? '';
-    console.log('Formdata', formData);
+   
     };
 };
